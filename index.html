@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sublimartina | Carteles Personalizados</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg-1:#fff8fc;
+      --bg-2:#fffdfd;
+      --pink-1:#ffd7ea;
+      --pink-2:#ff9dcb;
+      --pink-3:#ec4899;
+      --pink-4:#be185d;
+      --text:#1f1722;
+      --muted:#6f6470;
+      --line:rgba(236,72,153,.15);
+      --card:rgba(255,255,255,.78);
+      --shadow:0 20px 60px rgba(190,24,93,.10);
+      --radius:24px;
+      --max:1240px;
+    }
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Inter',sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(255,182,213,.35), transparent 30%),
+        radial-gradient(circle at top right, rgba(255,214,234,.65), transparent 35%),
+        linear-gradient(180deg, #fff7fb 0%, #fffefe 42%, #fff8fb 100%);
+      overflow-x:hidden;
+    }
+
+    .bg-blur{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      z-index:0;
+      background:
+        radial-gradient(circle at 20% 15%, rgba(255, 158, 205, 0.18), transparent 18%),
+        radial-gradient(circle at 80% 12%, rgba(255, 210, 232, 0.35), transparent 22%),
+        radial-gradient(circle at 50% 80%, rgba(255, 188, 220, 0.12), transparent 20%);
+      filter: blur(12px);
+    }
+
+    .wrap{
+      width:min(calc(100% - 32px), var(--max));
+      margin:0 auto;
+      position:relative;
+      z-index:1;
+    }
+
+    .topbar{
+      padding:20px 0;
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      padding:14px 18px;
+      border:1px solid rgba(255,255,255,.65);
+      background:rgba(255,255,255,.58);
+      backdrop-filter:blur(16px);
+      border-radius:999px;
+      box-shadow:0 10px 30px rgba(0,0,0,.04);
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:0;
+    }
+
+    .brand img{
+      width:54px;
+      height:54px;
+      object-fit:contain;
+      border-radius:50%;
+      box-shadow:0 8px 24px rgba(236,72,153,.18);
+      background:#fff;
+    }
+
+    .brand-text{
+      min-width:0;
+    }
+
+    .brand-text strong{
+      display:block;
+      font-size:15px;
+      font-weight:800;
+      letter-spacing:.02em;
+    }
+
+    .brand-text span{
+      display:block;
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .nav-links a{
+      text-decoration:none;
+      color:var(--text);
+      font-size:14px;
+      font-weight:600;
+      padding:10px 14px;
+      border-radius:999px;
+      transition:.2s ease;
+    }
+
+    .nav-links a:hover{
+      background:rgba(236,72,153,.08);
+      color:var(--pink-4);
+    }
+
+    .btn-nav{
+      background:linear-gradient(135deg, var(--pink-3), var(--pink-4));
+      color:#fff !important;
+      box-shadow:0 12px 25px rgba(236,72,153,.22);
+    }
+
+    .hero{
+      padding:48px 0 34px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:28px;
+      align-items:stretch;
+    }
+
+    .hero-copy,
+    .hero-card{
+      border:1px solid rgba(255,255,255,.7);
+      background:var(--card);
+      backdrop-filter:blur(16px);
+      border-radius:32px;
+      box-shadow:var(--shadow);
+    }
+
+    .hero-copy{
+      padding:54px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero-copy::before{
+      content:"";
+      position:absolute;
+      width:260px;
+      height:260px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(255,180,219,.34), transparent 70%);
+      top:-80px;
+      right:-70px;
+      pointer-events:none;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.72);
+      border:1px solid rgba(236,72,153,.12);
+      color:var(--pink-4);
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      margin-bottom:22px;
+    }
+
+    h1{
+      font-size:clamp(38px, 5vw, 64px);
+      line-height:.96;
+      letter-spacing:-.04em;
+      margin-bottom:18px;
+      max-width:680px;
+    }
+
+    .hero-copy p{
+      max-width:620px;
+      font-size:17px;
+      line-height:1.75;
+      color:var(--muted);
+      margin-bottom:30px;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-bottom:30px;
+    }
+
+    .btn{
+      border:none;
+      text-decoration:none;
+      display:inline-flex;
+      justify-content:center;
+      align-items:center;
+      gap:10px;
+      min-height:54px;
+      padding:0 22px;
+      border-radius:16px;
+      font-weight:700;
+      font-size:15px;
+      cursor:pointer;
+      transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+    }
+
+    .btn-primary{
+      background:linear-gradient(135deg, var(--pink-3), var(--pink-4));
+      color:#fff;
+      box-shadow:0 18px 30px rgba(236,72,153,.22);
+    }
+
+    .btn-secondary{
+      background:#fff;
+      color:var(--text);
+      border:1px solid rgba(236,72,153,.15);
+      box-shadow:0 10px 24px rgba(0,0,0,.05);
+    }
+
+    .hero-points{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:14px;
+      margin-top:10px;
+    }
+
+    .point{
+      background:rgba(255,255,255,.65);
+      border:1px solid rgba(236,72,153,.10);
+      border-radius:20px;
+      padding:18px;
+    }
+
+    .point strong{
+      display:block;
+      font-size:15px;
+      margin-bottom:6px;
+    }
+
+    .point span{
+      display:block;
+      font-size:13px;
+      color:var(--muted);
+      line-height:1.55;
+    }
+
+    .hero-card{
+      padding:20px;
+      display:grid;
+      grid-template-rows:auto 1fr;
+      gap:16px;
+    }
+
+    .hero-preview{
+      border-radius:26px;
+      overflow:hidden;
+      min-height:100%;
+      background:#fff;
+      border:1px solid rgba(236,72,153,.10);
+      position:relative;
+    }
+
+    .hero-preview img{
+      width:100%;
+      height:100%;
+      min-height:560px;
+      object-fit:cover;
+      display:block;
+    }
+
+    .hero-chip{
+      position:absolute;
+      left:18px;
+      bottom:18px;
+      background:rgba(255,255,255,.82);
+      backdrop-filter:blur(10px);
+      border:1px solid rgba(255,255,255,.8);
+      border-radius:18px;
+      padding:14px 16px;
+      box-shadow:0 10px 30px rgba(0,0,0,.08);
+      max-width:300px;
+    }
+
+    .hero-chip strong{
+      display:block;
+      margin-bottom:4px;
+      font-size:14px;
+    }
+
+    .hero-chip span{
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.5;
+    }
+
+    .section{
+      padding:34px 0;
+    }
+
+    .section-head{
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:18px;
+      margin-bottom:22px;
+    }
+
+    .section-head h2{
+      font-size:clamp(26px, 3vw, 38px);
+      line-height:1.05;
+      letter-spacing:-.03em;
+      margin-bottom:8px;
+    }
+
+    .section-head p{
+      color:var(--muted);
+      max-width:700px;
+      line-height:1.7;
+    }
+
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(4, minmax(0,1fr));
+      gap:18px;
+    }
+
+    .gallery-card{
+      background:rgba(255,255,255,.76);
+      border:1px solid rgba(255,255,255,.8);
+      border-radius:24px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      transition:transform .22s ease, box-shadow .22s ease;
+    }
+
+    .gallery-card:hover{
+      transform:translateY(-6px);
+      box-shadow:0 24px 56px rgba(190,24,93,.14);
+    }
+
+    .gallery-card img{
+      width:100%;
+      height:300px;
+      object-fit:cover;
+      display:block;
+    }
+
+    .gallery-body{
+      padding:18px 18px 20px;
+    }
+
+    .gallery-body strong{
+      display:block;
+      font-size:16px;
+      margin-bottom:8px;
+    }
+
+    .gallery-body p{
+      color:var(--muted);
+      line-height:1.65;
+      font-size:14px;
+    }
+
+    .custom{
+      display:grid;
+      grid-template-columns:1fr .95fr;
+      gap:24px;
+      align-items:start;
+    }
+
+    .config-copy,
+    .config-box{
+      background:rgba(255,255,255,.78);
+      border:1px solid rgba(255,255,255,.8);
+      backdrop-filter:blur(16px);
+      border-radius:32px;
+      box-shadow:var(--shadow);
+    }
+
+    .config-copy{
+      padding:42px;
+    }
+
+    .config-copy h3{
+      font-size:clamp(30px, 3vw, 44px);
+      line-height:1.02;
+      letter-spacing:-.03em;
+      margin-bottom:16px;
+    }
+
+    .config-copy p{
+      color:var(--muted);
+      line-height:1.78;
+      margin-bottom:26px;
+      max-width:620px;
+    }
+
+    .specs{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0,1fr));
+      gap:14px;
+    }
+
+    .spec{
+      padding:18px;
+      border-radius:20px;
+      background:linear-gradient(180deg, rgba(255,255,255,.96), rgba(255,245,250,.86));
+      border:1px solid rgba(236,72,153,.09);
+    }
+
+    .spec strong{
+      display:block;
+      margin-bottom:6px;
+      font-size:15px;
+    }
+
+    .spec span{
+      display:block;
+      color:var(--muted);
+      line-height:1.6;
+      font-size:14px;
+    }
+
+    .config-box{
+      padding:26px;
+    }
+
+    .config-box h4{
+      font-size:24px;
+      margin-bottom:8px;
+      letter-spacing:-.02em;
+    }
+
+    .config-box .mini{
+      color:var(--muted);
+      line-height:1.65;
+      margin-bottom:22px;
+      font-size:14px;
+    }
+
+    .form-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+    }
+
+    .field{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+
+    .field.full{
+      grid-column:1/-1;
+    }
+
+    .field label{
+      font-size:13px;
+      font-weight:700;
+      color:#433744;
+    }
+
+    .input,
+    .select,
+    .textarea{
+      width:100%;
+      border:none;
+      outline:none;
+      min-height:52px;
+      border-radius:16px;
+      padding:0 16px;
+      background:#fff;
+      border:1px solid rgba(236,72,153,.12);
+      color:var(--text);
+      font-family:'Inter',sans-serif;
+      font-size:14px;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.7);
+    }
+
+    .textarea{
+      min-height:130px;
+      resize:vertical;
+      padding:14px 16px;
+    }
+
+    .send{
+      width:100%;
+      margin-top:16px;
+      min-height:58px;
+      border-radius:18px;
+      border:none;
+      cursor:pointer;
+      font-size:15px;
+      font-weight:800;
+      color:#fff;
+      background:linear-gradient(135deg, #ec4899, #be185d);
+      box-shadow:0 18px 34px rgba(236,72,153,.25);
+      transition:transform .2s ease, box-shadow .2s ease;
+    }
+
+    .send:hover{
+      transform:translateY(-2px);
+      box-shadow:0 22px 38px rgba(236,72,153,.30);
+    }
+
+    .footer{
+      padding:34px 0 60px;
+      text-align:center;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    @media (max-width: 1100px){
+      .hero-grid,
+      .custom{
+        grid-template-columns:1fr;
+      }
+
+      .gallery{
+        grid-template-columns:repeat(2, minmax(0,1fr));
+      }
+
+      .hero-preview img{
+        min-height:420px;
+      }
+    }
+
+    @media (max-width: 760px){
+      .wrap{
+        width:min(calc(100% - 20px), var(--max));
+      }
+
+      .nav{
+        border-radius:24px;
+        padding:14px;
+        align-items:flex-start;
+        flex-direction:column;
+      }
+
+      .nav-links{
+        width:100%;
+      }
+
+      .hero{
+        padding-top:24px;
+      }
+
+      .hero-copy,
+      .config-copy,
+      .config-box{
+        padding:22px;
+        border-radius:24px;
+      }
+
+      .hero-points,
+      .specs,
+      .form-grid{
+        grid-template-columns:1fr;
+      }
+
+      .gallery{
+        grid-template-columns:1fr;
+      }
+
+      .gallery-card img{
+        height:260px;
+      }
+
+      .hero-preview img{
+        min-height:320px;
+      }
+
+      h1{
+        line-height:1.02;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-blur"></div>
+
+  <header class="topbar">
+    <div class="wrap">
+      <div class="nav">
+        <div class="brand">
+          <img src="logo.png" alt="Sublimartina">
+          <div class="brand-text">
+            <strong>Sublimartina</strong>
+            <span>Carteles y productos personalizados</span>
+          </div>
+        </div>
+
+        <nav class="nav-links">
+          <a href="#trabajos">Trabajos</a>
+          <a href="#pedido">Pedir presupuesto</a>
+          <a href="#pedido" class="btn-nav">Consultar por WhatsApp</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <div class="eyebrow">Diseños personalizados • LED • Letras 3D</div>
+
+            <h1>Carteles con presencia real para marcas, locales y regalos.</h1>
+
+            <p>
+              Mostrá tus trabajos con una imagen mucho más profesional. El cliente elige el tamaño,
+              el color de luz LED y si quiere agregar letras 3D. La consulta llega ordenada por WhatsApp
+              para que después vos le pases el precio manualmente.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#trabajos" class="btn btn-primary">Ver trabajos</a>
+              <a href="#pedido" class="btn btn-secondary">Solicitar presupuesto</a>
+            </div>
+
+            <div class="hero-points">
+              <div class="point">
+                <strong>Tamaños disponibles</strong>
+                <span>50, 55, 60, 80 cm y 1 metro.</span>
+              </div>
+              <div class="point">
+                <strong>Colores de luz</strong>
+                <span>El cliente elige el LED según el estilo del cartel.</span>
+              </div>
+              <div class="point">
+                <strong>Pedido simple</strong>
+                <span>Todo llega directo a WhatsApp, sin mostrar precios en la web.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-card">
+            <div class="hero-preview">
+              <img src="img/trabajo (1).jpeg" alt="Trabajo destacado">
+              <div class="hero-chip">
+                <strong>Carteles LED personalizados</strong>
+                <span>Una presentación más premium, limpia y pensada para vender mejor.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="trabajos">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>Trabajos destacados</h2>
+            <p>
+              Una galería más elegante hace que la marca se vea seria. Acá van tus ejemplos reales,
+              con fotos bien presentadas y descripciones cortas.
+            </p>
+          </div>
+        </div>
+
+        <div class="gallery">
+          <article class="gallery-card">
+            <img src="img/trabajo (1).jpeg" alt="Cartel LED personalizado">
+            <div class="gallery-body">
+              <strong>Cartel LED personalizado</strong>
+              <p>Ideal para marcas, emprendimientos y espacios con una presencia visual más fuerte.</p>
+            </div>
+          </article>
+
+          <article class="gallery-card">
+            <img src="img/trabajo (2).jpeg" alt="Logo con iluminación">
+            <div class="gallery-body">
+              <strong>Logo con iluminación</strong>
+              <p>Una opción pensada para destacar identidad visual en locales, estudios y showrooms.</p>
+            </div>
+          </article>
+
+          <article class="gallery-card">
+            <img src="img/trabajo (3).jpeg" alt="Letras corpóreas">
+            <div class="gallery-body">
+              <strong>Letras corpóreas</strong>
+              <p>Podés mostrar opciones con relieve, volumen y terminaciones más premium.</p>
+            </div>
+          </article>
+
+          <article class="gallery-card">
+            <img src="img/trabajo (4).jpeg" alt="Cartel decorativo LED">
+            <div class="gallery-body">
+              <strong>Cartel decorativo LED</strong>
+              <p>Perfecto para ambientación, regalos personalizados o cartelería con estilo.</p>
+            </div>
+          </article>
+
+          <article class="gallery-card">
+            <img src="img/trabajo (5).jpeg" alt="Cartel para local">
+            <div class="gallery-body">
+              <strong>Cartel para local</strong>
+              <p>Una propuesta fuerte para vidrieras, negocios y sectores de atención al público.</p>
+            </div>
+          </article>
+
+          <article class="gallery-card">
+            <img src="img/trabajo (6).jpeg" alt="Cartel con logo">
+            <div class="gallery-body">
+              <strong>Diseño con logo</strong>
+              <p>El cliente puede enviarte la idea y después cerrar el presupuesto por WhatsApp.</p>
+            </div>
+          </article>
+
+          <article class="gallery-card">
+            <img src="img/trabajo (7).jpeg" alt="Trabajo LED">
+            <div class="gallery-body">
+              <strong>Trabajo a medida</strong>
+              <p>Mostrá variedad de estilos para que la web se vea completa y con respaldo visual.</p>
+            </div>
+          </article>
+
+          <article class="gallery-card">
+            <img src="img/trabajo (8).jpeg" alt="Cartel especial">
+            <div class="gallery-body">
+              <strong>Proyecto especial</strong>
+              <p>Podés usar esta grilla para mezclar logos, carteles decorativos y piezas LED.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="pedido">
+      <div class="wrap">
+        <div class="custom">
+          <div class="config-copy">
+            <h3>Pedí tu cartel personalizado sin mostrar precios en la web.</h3>
+            <p>
+              El usuario configura el pedido y vos recibís la consulta completa por WhatsApp.
+              Así evitás mostrar importes fijos y podés responder según el trabajo, el tamaño,
+              el color de luz y los detalles del diseño.
+            </p>
+
+            <div class="specs">
+              <div class="spec">
+                <strong>Tamaños disponibles</strong>
+                <span>50 cm, 55 cm, 60 cm, 80 cm y 1 metro.</span>
+              </div>
+
+              <div class="spec">
+                <strong>Colores LED</strong>
+                <span>Blanco, cálido, rosa, azul, rojo, verde o multicolor.</span>
+              </div>
+
+              <div class="spec">
+                <strong>Letras 3D</strong>
+                <span>El cliente puede indicar si quiere sumar volumen al diseño.</span>
+              </div>
+
+              <div class="spec">
+                <strong>Consulta ordenada</strong>
+                <span>Todo llega listo para responder desde WhatsApp sin perder tiempo.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="config-box">
+            <h4>Solicitar presupuesto</h4>
+            <p class="mini">
+              Completá los datos y abrí el mensaje automáticamente en WhatsApp.
+            </p>
+
+            <div class="form-grid">
+              <div class="field">
+                <label for="nombre">Nombre</label>
+                <input class="input" id="nombre" type="text" placeholder="Tu nombre">
+              </div>
+
+              <div class="field">
+                <label for="producto">Producto</label>
+                <input class="input" id="producto" type="text" value="Cartel LED personalizado">
+              </div>
+
+              <div class="field full">
+                <label for="texto">Texto o nombre del cartel</label>
+                <input class="input" id="texto" type="text" placeholder="Ej: Sublimartina / Mi negocio / Mi logo">
+              </div>
+
+              <div class="field">
+                <label for="tam">Tamaño</label>
+                <select class="select" id="tam">
+                  <option>50 cm</option>
+                  <option>55 cm</option>
+                  <option>60 cm</option>
+                  <option>80 cm</option>
+                  <option>1 metro</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="color">Color de luz LED</label>
+                <select class="select" id="color">
+                  <option>Blanco</option>
+                  <option>Blanco cálido</option>
+                  <option>Rosa</option>
+                  <option>Azul</option>
+                  <option>Rojo</option>
+                  <option>Verde</option>
+                  <option>Multicolor</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="letras">¿Agregar letras 3D?</label>
+                <select class="select" id="letras">
+                  <option>No</option>
+                  <option>Sí</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="logo">¿Tiene logo o imagen de referencia?</label>
+                <select class="select" id="logo">
+                  <option>Sí, te la mando por WhatsApp</option>
+                  <option>No, necesito diseño</option>
+                </select>
+              </div>
+
+              <div class="field full">
+                <label for="coment">Comentarios extra</label>
+                <textarea class="textarea" id="coment" placeholder="Contanos cualquier detalle que quieras agregar..."></textarea>
+              </div>
+            </div>
+
+            <button class="send" onclick="enviarWhatsApp()">Enviar consulta por WhatsApp</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      Sublimartina · Todo personalizado
+    </div>
+  </footer>
+
+  <script>
+    function enviarWhatsApp() {
+      const nombre = document.getElementById("nombre").value.trim();
+      const producto = document.getElementById("producto").value.trim();
+      const texto = document.getElementById("texto").value.trim();
+      const tam = document.getElementById("tam").value;
+      const color = document.getElementById("color").value;
+      const letras = document.getElementById("letras").value;
+      const logo = document.getElementById("logo").value;
+      const coment = document.getElementById("coment").value.trim();
+
+      let mensaje = "Hola, quiero solicitar presupuesto para un pedido personalizado.%0A%0A";
+      mensaje += "*Nombre:* " + (nombre || "-") + "%0A";
+      mensaje += "*Producto:* " + (producto || "Cartel LED personalizado") + "%0A";
+      mensaje += "*Texto del cartel:* " + (texto || "-") + "%0A";
+      mensaje += "*Tamaño:* " + tam + "%0A";
+      mensaje += "*Color LED:* " + color + "%0A";
+      mensaje += "*Letras 3D:* " + letras + "%0A";
+      mensaje += "*Logo o referencia:* " + logo + "%0A";
+      mensaje += "*Comentarios:* " + (coment || "-");
+
+      window.open("https://wa.me/5491166934099?text=" + mensaje, "_blank");
+    }
+  </script>
+</body>
+</html>
