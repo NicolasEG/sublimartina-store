@@ -355,47 +355,67 @@
     }
 
     .gallery{
-      display:grid;
-      grid-template-columns:repeat(4, minmax(0,1fr));
-      gap:18px;
-    }
+  display:grid;
+  grid-template-columns:repeat(4, minmax(0,1fr));
+  gap:18px;
+}
 
-    .gallery-card{
-      background:rgba(255,255,255,.76);
-      border:1px solid rgba(255,255,255,.8);
-      border-radius:24px;
-      overflow:hidden;
-      box-shadow:var(--shadow);
-      transition:transform .22s ease, box-shadow .22s ease;
-    }
+.gallery-card{
+  position:relative;
+  border-radius:24px;
+  overflow:hidden;
+  background:#fff;
+  border:1px solid rgba(255,255,255,.85);
+  box-shadow:0 20px 50px rgba(190,24,93,.10);
+  transition:transform .25s ease, box-shadow .25s ease;
+  min-height:320px;
+}
 
-    .gallery-card:hover{
-      transform:translateY(-6px);
-      box-shadow:0 24px 56px rgba(190,24,93,.14);
-    }
+.gallery-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 26px 60px rgba(190,24,93,.16);
+}
 
-    .gallery-card img{
-      width:100%;
-      height:300px;
-      object-fit:cover;
-      display:block;
-    }
+.gallery-card img{
+  width:100%;
+  height:100%;
+  min-height:320px;
+  object-fit:cover;
+  display:block;
+  transition:transform .45s ease;
+}
 
-    .gallery-body{
-      padding:18px 18px 20px;
-    }
+.gallery-card:hover img{
+  transform:scale(1.06);
+}
 
-    .gallery-body strong{
-      display:block;
-      font-size:16px;
-      margin-bottom:8px;
-    }
+.gallery-overlay{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:flex-end;
+  padding:20px;
+  background:linear-gradient(to top, rgba(20,12,18,.72) 0%, rgba(20,12,18,.18) 45%, rgba(20,12,18,0) 70%);
+  opacity:0;
+  transition:opacity .28s ease;
+}
 
-    .gallery-body p{
-      color:var(--muted);
-      line-height:1.65;
-      font-size:14px;
-    }
+.gallery-card:hover .gallery-overlay{
+  opacity:1;
+}
+
+.gallery-overlay strong{
+  color:#fff;
+  font-size:18px;
+  font-weight:700;
+  line-height:1.2;
+  transform:translateY(10px);
+  transition:transform .28s ease;
+}
+
+.gallery-card:hover .gallery-overlay strong{
+  transform:translateY(0);
+}
 
     .custom{
       display:grid;
@@ -672,97 +692,89 @@ Diseñamos carteles personalizados donde podés elegir el tamaño, el color de i
           </div>
 
           <div class="hero-card">
-            <div class="hero-preview">
-              <img src="img/trabajo (1).jpeg" alt="Trabajo destacado">
-              <div class="hero-chip">
-                <strong>Carteles LED personalizados</strong>
-                <span>Una presentación más premium, limpia y pensada para vender mejor.</span>
-              </div>
-            </div>
-          </div>
-        </div>
+  <div class="hero-preview">
+    <img src="img/trabajo (1).jpeg" alt="Trabajo destacado">
+    <div class="hero-chip">
+      <strong>Carteles LED personalizados</strong>
+      <span>Diseños a medida para marcas, locales y regalos.</span>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section" id="trabajos">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <h2>Trabajos destacados</h2>
+        <p>
+          Conocé algunos de nuestros diseños personalizados realizados para marcas,
+          locales, emprendimientos y regalos especiales.
+        </p>
       </div>
-    </section>
+    </div>
 
-    <section class="section" id="trabajos">
-      <div class="wrap">
-        <div class="section-head">
-          <div>
-            <h2>Trabajos destacados</h2>
-            <p>
-              Una galería más elegante hace que la marca se vea seria. Acá van tus ejemplos reales,
-              con fotos bien presentadas y descripciones cortas.
-            </p>
-          </div>
+    <div class="gallery">
+      <article class="gallery-card">
+        <img src="img/trabajo (1).jpeg" alt="Cartel LED personalizado">
+        <div class="gallery-overlay">
+          <strong>Cartel LED personalizado</strong>
         </div>
+      </article>
 
-        <div class="gallery">
-          <article class="gallery-card">
-            <img src="img/trabajo (1).jpeg" alt="Cartel LED personalizado">
-            <div class="gallery-body">
-              <strong>Cartel LED personalizado</strong>
-              <p>Ideal para marcas, emprendimientos y espacios con una presencia visual más fuerte.</p>
-            </div>
-          </article>
-
-          <article class="gallery-card">
-            <img src="img/trabajo (2).jpeg" alt="Logo con iluminación">
-            <div class="gallery-body">
-              <strong>Logo con iluminación</strong>
-              <p>Una opción pensada para destacar identidad visual en locales, estudios y showrooms.</p>
-            </div>
-          </article>
-
-          <article class="gallery-card">
-            <img src="img/trabajo (3).jpeg" alt="Letras corpóreas">
-            <div class="gallery-body">
-              <strong>Letras corpóreas</strong>
-              <p>Podés mostrar opciones con relieve, volumen y terminaciones más premium.</p>
-            </div>
-          </article>
-
-          <article class="gallery-card">
-            <img src="img/trabajo (4).jpeg" alt="Cartel decorativo LED">
-            <div class="gallery-body">
-              <strong>Cartel decorativo LED</strong>
-              <p>Perfecto para ambientación, regalos personalizados o cartelería con estilo.</p>
-            </div>
-          </article>
-
-          <article class="gallery-card">
-            <img src="img/trabajo (5).jpeg" alt="Cartel para local">
-            <div class="gallery-body">
-              <strong>Cartel para local</strong>
-              <p>Una propuesta fuerte para vidrieras, negocios y sectores de atención al público.</p>
-            </div>
-          </article>
-
-          <article class="gallery-card">
-            <img src="img/trabajo (6).jpeg" alt="Cartel con logo">
-            <div class="gallery-body">
-              <strong>Diseño con logo</strong>
-              <p>El cliente puede enviarte la idea y después cerrar el presupuesto por WhatsApp.</p>
-            </div>
-          </article>
-
-          <article class="gallery-card">
-            <img src="img/trabajo (7).jpeg" alt="Trabajo LED">
-            <div class="gallery-body">
-              <strong>Trabajo a medida</strong>
-              <p>Mostrá variedad de estilos para que la web se vea completa y con respaldo visual.</p>
-            </div>
-          </article>
-
-          <article class="gallery-card">
-            <img src="img/trabajo (8).jpeg" alt="Cartel especial">
-            <div class="gallery-body">
-              <strong>Proyecto especial</strong>
-              <p>Podés usar esta grilla para mezclar logos, carteles decorativos y piezas LED.</p>
-            </div>
-          </article>
+      <article class="gallery-card">
+        <img src="img/trabajo (2).jpeg" alt="Logo con iluminación">
+        <div class="gallery-overlay">
+          <strong>Logo con iluminación</strong>
         </div>
-      </div>
-    </section>
+      </article>
+
+      <article class="gallery-card">
+        <img src="img/trabajo (3).jpeg" alt="Letras corpóreas">
+        <div class="gallery-overlay">
+          <strong>Letras corpóreas</strong>
+        </div>
+      </article>
+
+      <article class="gallery-card">
+        <img src="img/trabajo (4).jpeg" alt="Cartel decorativo LED">
+        <div class="gallery-overlay">
+          <strong>Cartel decorativo LED</strong>
+        </div>
+      </article>
+
+      <article class="gallery-card">
+        <img src="img/trabajo (5).jpeg" alt="Cartel para local">
+        <div class="gallery-overlay">
+          <strong>Cartel para local</strong>
+        </div>
+      </article>
+
+      <article class="gallery-card">
+        <img src="img/trabajo (6).jpeg" alt="Diseño con logo">
+        <div class="gallery-overlay">
+          <strong>Diseño con logo</strong>
+        </div>
+      </article>
+
+      <article class="gallery-card">
+        <img src="img/trabajo (7).jpeg" alt="Trabajo a medida">
+        <div class="gallery-overlay">
+          <strong>Trabajo a medida</strong>
+        </div>
+      </article>
+
+      <article class="gallery-card">
+        <img src="img/trabajo (8).jpeg" alt="Proyecto personalizado">
+        <div class="gallery-overlay">
+          <strong>Proyecto personalizado</strong>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
 
     <section class="section" id="pedido">
       <div class="wrap">
@@ -905,6 +917,7 @@ Diseñamos carteles personalizados donde podés elegir el tamaño, el color de i
   </script>
 </body>
 </html>
+
 
 
 
